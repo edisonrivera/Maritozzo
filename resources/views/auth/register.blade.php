@@ -3,46 +3,91 @@
 @section('subtitle', 'Registro')
 
 @section('content')
-<div class='grid grid-rows-4 grid-cols-4 gap-4'>
+<div class="container mx-auto font-mono">
+    <div class="flex justify-center px-6 my-12">
+        <!-- Row -->
+        <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+            <!-- Col -->
+            <div class="w-full h-auto bg-green-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg p-2 pt-12">
+                <img src="{{asset('/storage/Maritozzo.svg')}}" alt="Maritozzo.svg">
+            </div>
+            <!-- Col -->
+            <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none bg-gray-100 ">
+                <form class="px-8 pt-6 pb-8 mb-4 bg-gray-100 rounded" method="POST" action="/register">
+                    @csrf
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700">
+                            Nombre de Usuario
+                        </label>
+                        <input
+                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            id="email"
+                            type="text"
+                            placeholder="Ex. Carlos"
+                            name="username"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700">
+                            Correo Electrónico
+                        </label>
+                        <input
+                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            id="email"
+                            type="email"
+                            placeholder="Ex. carlos@carlos.com"
+                            name="email"
+                        />
+                    </div>
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700">
+                            Contraseña
+                        </label>
+                        <input
+                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            id="email"
+                            type="password"
+                            placeholder="******************"
+                            name="password"
+                        />
+                    </div>
 
-    <div class="bg-green-400 col-span-2 row-span-full">
-        <img class="px-2 pt-12" src="{{ asset('storage\Maritozzo.svg') }}" alt="Maritozzo.SVG"> 
-    </div>
-    
-    <!-- FORM -->
-    <div class="w-auto max-w-sm col-span-2 row-start-1 row-end-4 mx-12">
-        <form class="bg-slate-200 shadow-md rounded px-4 pt-6 pb-8 mb-4" action='/register' method="POST">
-            @csrf
-            <div class="mb-3">
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="username" type="text" placeholder="Nombre de usuario">
-            </div>
-            <div class="mb-3">
-                <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="email" type="email" placeholder="Correo Electrónico">
-            </div>
-            <div class="mb-3">
-                <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="password" type="password" placeholder="Contraseña">
-            </div>
-            <div class="mb-3">
-                <input class="shadow appearance-none border  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="password_confirmation" type="password" placeholder="Confirmar contraseña">
-            </div>
-            <input type='submit' value='Registrar'>
-            <div class="mb-3 w-full">
-                <input class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Registrar">
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700">
+                            Confirmar Contraseña
+                        </label>
+                        <input
+                            class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                            id="email"
+                            type="password"
+                            placeholder="******************"
+                            name="password_confirmation"
+                        />
+                    </div>
                     
+                    <div class="mb-6 text-center">
+                        <button
+                            class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                            type="submit"
+                        >
+                            Continuar
+                        </button>
+                    </div>
+                    <hr class="mb-6 border-t" />
+                    <div class="text-center">
+                        <a
+                            class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+                            href="{{route('login')}}"
+                        >
+                            Ya tienes una cuenta? Logeate!
+                        </a>
+                    </div>
+                </form>
             </div>
-        </form>
-
-        <div class="flex bg-slate-200 shadow-md rounded px-4 py-4 pb-3 mb-4 font-semibold">
-            <p class="ml-5 text-base">Ya tienes una cuenta?<p>
-            <a href="{{route('welcome')}}" class="w-40 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-12">
-                Login
-            </a>
         </div>
-        
-        <p class="text-center text-gray-500 text-xs">
-            &copy;2022 EsTX - Estela. Derechos reservados.
-        </p>
     </div>
 </div>
+
+
 @endsection
 
