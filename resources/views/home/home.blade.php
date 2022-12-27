@@ -2,5 +2,5 @@
 @section('subtitle', 'Home')
 
 @section('content')
-    <h1 class="text-black">Hola</h1>
+    <img src="{{asset('/storage/home-1.svg')}}" class="px-12">
 @endsection
