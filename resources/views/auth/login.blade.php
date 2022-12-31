@@ -9,7 +9,7 @@
         <!-- Row -->
         <div class="w-full xl:w-3/4 lg:w-11/12 flex">
             <!-- Col -->
-            <div class="flex-row justify-content-center align-items-center bg-green-500 bg-opacity-40 hidden lg:block p-2 rounded-l-lg">
+            <div class="flex-row justify-content-center align-items-center bg-green-500 bg-opacity-50 hidden lg:block p-2 rounded-l-lg">
 
                 <img src="{{asset('/storage/Maritozzo.svg')}}" alt="Maritozzo" class="py-10" />
 
