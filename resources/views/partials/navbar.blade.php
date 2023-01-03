@@ -17,7 +17,7 @@
                     <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('home')}}">Inicio</a></li>
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('menu')}}">Menú</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="#">Contáctanos</a></li>
+                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('contact')}}">Contáctanos</a></li>
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold lg:mb-0 mb-2" href="{{route('about')}}">Nosotros</a></li>
                     </ul>
                 </nav>

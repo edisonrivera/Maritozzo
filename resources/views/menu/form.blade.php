@@ -23,6 +23,10 @@
     <br>
     <input type="file" name="image" value="" class="file-input file-input-bordered file-input-info w-full max-w-xs" />
     <br>
-    <input type="submit" value="Guardar datos" class="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg rounded-lg text-white border-inherit"/>
-    <a href="{{url('menu/')}}">Volver</a>
+    <div class="flex justify-center">
+        <a class="btn btn-xs bg-gray-400 sm:btn-sm md:btn-md lg:btn-lg rounded-lg text-black border-inherit hover:text-white mx-4 hover:bg-gray-600" href="{{url('menu/')}}">Volver</a>
+        <input type="submit" value="Guardar" class="btn btn-xs sm:btn-sm md:btn-md bg-blue-500 lg:btn-lg rounded-lg text-black border-inherit hover:text-white hover:bg-blue-600"/>
+        
+    </div>
+    
 </div>

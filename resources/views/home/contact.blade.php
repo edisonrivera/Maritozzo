@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section ('title','Contacto')
+@section ('subtitle','Contacto')
     
 @section('meta-description', 'Contact meta description')
 
