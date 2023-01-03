@@ -30,7 +30,7 @@ Route::post('/login', [LoginControler::class,'login']);
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('about');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
