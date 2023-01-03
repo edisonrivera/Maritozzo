@@ -30,10 +30,10 @@ Route::post('/login', [LoginControler::class,'login']);
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-
+Route::get('/contact', [HomeController::class, 'contact'])->name('about');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
-
 //routs for the CRUD
 Route::resource('menu',MenuController::class);
+Route::get('/menu',[MenuController::class, 'index'])->name('menu');

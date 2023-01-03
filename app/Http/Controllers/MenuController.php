@@ -10,6 +10,7 @@ use  Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +49,7 @@ class MenuController extends Controller
             $datosMenu['image'] = $request -> file('image')->store('uploads','public');
         }
         Menu::insert($datosMenu);
-        return to_route('menu.index')-> with('mensaje','Registro Ceado');
+        return to_route('menu')-> with('mensaje','Registro Creado');
     }
 
     /**
@@ -57,10 +58,7 @@ class MenuController extends Controller
      * @param  \App\Models\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function show(Menu $menu)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
