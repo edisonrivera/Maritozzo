@@ -6,12 +6,12 @@
 
 @section('content')
     <!--Title-->
-    <h1 class="text-3xl italic text-center py-6 font-semibold font-['Open_Sans']">Contamos con 3 sedes en las ciudades principales del Ecuador. !Ven y disfruta nuestros platillos¡</h1>
+    <h1 class="text-3xl italic text-center py-6 font-semibold font-mono">Contamos con 3 sedes en las ciudades principales del Ecuador. !Ven y disfruta nuestros platillos¡</h1>
 
     <div class="grid lg:grid-cols-3 lg:gap-4 p-4 md:grid-cols-2 md:gap-4 grid-cols-1 justify-items-center py-4">
         <!--Location GPS QUITO-->    
         <div class="card w-96 bg-base-100 shadow-xl shadow-amber-200">
-            <figure class="px-10 pt-10">
+            <figure class="px-10 pt-10 rounded-md">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15959.144842868882!2d-78.52729046566634!3d-0.2298682473297135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spanecillo!5e0!3m2!1ses-419!2sec!4v1671430743452!5m2!1ses-419!2sec" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </figure>
             <div class="card-body items-center text-center">

@@ -37,3 +37,6 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 //routs for the CRUD
 Route::resource('menu',MenuController::class);
 Route::get('/menu',[MenuController::class, 'index'])->name('menu');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

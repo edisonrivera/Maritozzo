@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 //nuevo
 use Validator;
 use  Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class MenuController extends Controller
 {

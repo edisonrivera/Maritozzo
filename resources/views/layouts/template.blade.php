@@ -7,9 +7,10 @@
     <link rel="shortcut icon" href="{{asset('storage\favicon.svg')}}" type="image/svg">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Maritozzo | @yield('subtitle')</title>
 </head>
-<body>
+<body class="font-mono">
     @include('partials.navbar')
     <main>
         @yield('content')
