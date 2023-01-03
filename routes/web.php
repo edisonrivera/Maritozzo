@@ -6,6 +6,8 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginControler;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\MenuController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,10 @@ Route::post('/login', [LoginControler::class,'login']);
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+
+//routs for the CRUD
+Route::resource('menu',MenuController::class);
