@@ -26,6 +26,7 @@
                             type="text"
                             placeholder="Ex. Carlos"
                             name="username"
+                            required
                         />
                     </div>
                     <div class="mb-4">
@@ -38,6 +39,7 @@
                             type="email"
                             placeholder="Ex. carlos@carlos.com"
                             name="email"
+                            required
                         />
                     </div>
                     <div class="mb-4">
@@ -50,6 +52,7 @@
                             type="password"
                             placeholder="******************"
                             name="password"
+                            required
                         />
                     </div>
 
@@ -63,6 +66,7 @@
                             type="password"
                             placeholder="******************"
                             name="password_confirmation"
+                            required
                         />
                     </div>
                     

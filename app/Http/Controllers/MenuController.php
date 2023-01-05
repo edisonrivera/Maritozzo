@@ -23,7 +23,7 @@ class MenuController extends Controller
                 ->select('id','name','description','price','image')
                 ->where('name','LIKE','%'.$texto.'%')
                 ->orderBy('id','asc')
-                ->paginate(1);
+                ->paginate(10);
         return view ('menu.index',compact('platillos','texto'));
     }
 
@@ -72,7 +72,7 @@ class MenuController extends Controller
             $datosMenu['image'] = $request -> file('image')->store('uploads','public');
         }
         Menu::insert($datosMenu);
-        return to_route('menu')-> with('mensaje','Registro Creado');
+        return to_route('menu')->with('mensaje','Registro Creado');
     }
 
     /**
@@ -105,26 +105,26 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-                //Campos a validar
-                $campos=[
-                    'name'=>'required|string|max:50',
-                    'description'=>'required|string|max:100',
-                    'price'=>'required|numeric',
-                ];
-        
-                //mensajes de error
-                $mensaje=[
-                    'name.required' => 'El nombre es requerido',
-                    'description.required' => 'La descripción es requerida',
-                    'price.required' => 'El precio es requerido'
-                ];
+        //Campos a validar
+        $campos=[
+            'name'=>'required|string|max:50',
+            'description'=>'required|string|max:100',
+            'price'=>'required|numeric',
+        ];
 
-                if($request -> hasFile('image')){
-                    $campos=['image'=>'required|max:1000|mimes:jpeg,png,svg,jpg'];
-                    $mensaje=['image.required' => 'La foto es requerida'];
-                }
-        
-                $this->validate($request, $campos, $mensaje);
+        //mensajes de error
+        $mensaje=[
+            'name.required' => 'El nombre es requerido',
+            'description.required' => 'La descripción es requerida',
+            'price.required' => 'El precio es requerido'
+        ];
+
+        if($request -> hasFile('image')){
+            $campos=['image'=>'required|max:1000|mimes:jpeg,png,svg,jpg'];
+            $mensaje=['image.required' => 'La foto es requerida'];
+        }
+
+        $this->validate($request, $campos, $mensaje);
         //aqui mandamos a que guarde los cambios de edit en la BD
         $datosMenu = $request-> except(['_token', '_method']);
         //si existe la foto

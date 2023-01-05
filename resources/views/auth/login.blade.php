@@ -3,6 +3,7 @@
 @section('subtitle', 'Login')
 
 @section('content')
+
 <!-- Container -->
 <div class="flex h-screen justify-center items-center font-mono">
     <div class="flex justify-center px-6 my-12">
@@ -19,6 +20,12 @@
                 <form class="px-8 pt-6 pb-8 mb-4 rounded" method="POST" action="/login">
                     @csrf
                     <div class="mb-4">
+                        @if (Session::has('message'))
+                        <div class='flex flex-row mb-5 p-3 text-sm text-white bg-red-500 rounded-lg text-center w-full'>
+                            <img src="{{asset('/storage/error_login-icon.png')}}" alt="Maritozzo"/>
+                            <span class="text-1xl font-bold ml-2">{{ Session::get('message') }} </span>
+                        </div>
+                        @endif
                         <label class="block mb-2 text-sm font-bold text-gray-100" for="email">
                             Usuario / Email
                         </label>
@@ -28,6 +35,7 @@
                             type="text"
                             placeholder="Carlos o carlos@carlos.com"
                             name="username"
+                            required
                         />
                     </div>
                     <div>
@@ -40,6 +48,7 @@
                             type="password"
                             placeholder="******************"
                             name="password"
+                            required
                         />
                     </div>
                     <div class="text-right mb-5">
