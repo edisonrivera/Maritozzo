@@ -19,6 +19,12 @@
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('menu')}}">Menú</a></li>
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('contact')}}">Contáctanos</a></li>
                     <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold lg:mb-0 mb-2" href="{{route('about')}}">Nosotros</a></li>
+                    @auth
+                    <li><a class="lg:p-4 py-3 px-0 bg-red-400 block border-b-2 border-transparent hover:border-red-800 font-bold lg:mb-0 mb-2" href="{{route('logout')}}">Salir</a></li>
+                    @endauth
+                    @guest
+                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold lg:mb-0 mb-2" href="{{route('register')}}">Registrarse</a></li>
+                    @endguest
                     </ul>
                 </nav>
             </div>
