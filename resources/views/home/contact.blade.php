@@ -6,9 +6,9 @@
 
 @section('content')
     <!--Title-->
-    <h1 class="text-3xl italic text-center py-6 font-semibold font-mono">Contamos con 3 sedes en las ciudades principales del Ecuador. !Ven y disfruta nuestros platillos¡</h1>
+    <h1 class="pt-4 text-3xl italic text-center py-4 pb-8 font-semibold font-mono">Contamos con 3 sedes en las ciudades principales del Ecuador. !Ven y disfruta nuestros platillos¡</h1>
 
-    <div class="grid lg:grid-cols-3 lg:gap-4 p-4 md:grid-cols-2 md:gap-4 grid-cols-1 justify-items-center py-4">
+    <div class="grid lg:grid-cols-3 lg:gap-4 p-4 md:grid-cols-2 md:gap-4 grid-cols-1 justify-items-center py-12 mt-20">
         <!--Location GPS QUITO-->    
         <div class="card w-96 bg-base-100 shadow-xl shadow-amber-200">
             <figure class="px-10 pt-10 rounded-md">

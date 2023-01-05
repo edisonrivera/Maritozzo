@@ -3,6 +3,7 @@
 @section('subtitle', 'Ver')
 
 @section('content')
+@if(Auth::user()->id == 1 )
 
 @if (Session::has('mensaje'))
 <div class="p-4 mb-4 mx-12 mt-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
@@ -11,7 +12,7 @@
 @endif
 
 <div class="flex justify-end">
-  <a class="btn btn-accent m-4 bg-emerald-300 px-10 hover:bg-emerald-500 hover:border-inherit border-inherit" href="{{url('menu/create')}}"><img src="{{asset ('storage/add-icon.png')}}" alt="add.svg"></a>
+  <a class="btn btn-accent m-4 bg-emerald-300 px-10 hover:bg-emerald-500 hover:border-inherit border-inherit" href="{{url('menu/create')}}"><img src="{{asset ('storage/add-icon.png')}}" alt="add.svg" class="w-12 p-2"></a>
 </div>
 <!--Search-->
 <form action="{{url('/menu')}}" method="get" class="flex items-center justify-start lg:mx-48 w-3/12">   
@@ -29,27 +30,25 @@
 </form>
 <!--End Search-->
 <!--Table-->
-<div class="container">
- <!--div Users Table-->
  <h1 class="text-extrabold text-green-500 text-center text-2xl py-6"> Lista de platos </h1>
-  <div class="overflow-x-auto md:px-48 lg:px-48">
-    <table class="table w-full border-separate border-spacing-2">
+  <div class="container mx-auto px-12 md:px-48 lg:px-48">
+    <table class="table w-full border-separate border-spacing-2 table-fixed">
       <!-- head -->
       <thead>
         <tr class="text-center">
-          <th class="border border-cyan-500 bg-white">N°</th><!--Id-->
-          <th class="border border-cyan-500 bg-white">Imagen</th>
-          <th class="border border-cyan-500 bg-white">Nombre Platillo</th>
-          <th class="border border-cyan-500 bg-white">Descripción</th>
-          <th class="border border-cyan-500 bg-white">Precio</th>
-          <th class="border border-cyan-500 bg-white">Acciones</th>
+          <th class="border border-cyan-500 bg-white w-1/6">N°</th><!--Id-->
+          <th class="border border-cyan-500 bg-white w-1/6">Imagen</th>
+          <th class="border border-cyan-500 bg-white w-1/6">Nombre Platillo</th>
+          <th class="border border-cyan-500 bg-white w-2/6">Descripción</th>
+          <th class="border border-cyan-500 bg-white w-1/6">Precio</th>
+          <th class="border border-cyan-500 bg-white w-1/6">Acciones</th>
         </tr>
       </thead>
     <tbody class="text-center">
       @if (count($platillos)<=0)
         <tr>
           <td class="font-extrabold text-blue-500">
-            No hay resultados
+            No se encontro ningún registro
           </td>
         </tr>
       @else
@@ -61,13 +60,14 @@
           <img src="{{asset ('storage').'/'.$plato->image}}" alt="platillo">
         </td>
         <td class="border  border-green-500">{{$plato -> name}}</td>
-        <td class="border  border-green-500">{{$plato -> description}}</td>
+        <td class="border  border-green-500 break-words"><p class="text-ellipsis overflow-hidden">{{$plato -> description}}</p></span></td>
         <td class="border  border-green-500">{{$plato -> price}}</td>
         <td>
-          <a class="btn my-2 bg-blue-700 hover:bg-blue-800 text-white hover:border-inherit border-inherit" href="{{ url('/menu/'.$plato->id.'/edit')}}">
+        <a class="btn my-2 bg-blue-700 hover:bg-blue-800 text-white hover:border-inherit border-inherit" href="{{ url('/menu/'.$plato->id.'/edit')}}">
             <img src="{{asset ('storage/edit-icon.png')}}" alt="edit.svg">
             Editar 
           </a>
+
 
           <form action="{{ url('/menu/'.$plato->id) }}" method="post">
             @csrf
@@ -83,10 +83,34 @@
       @endif
     </tbody>
     </table>
-    <div class="grid grid-rows-1">   
-      {!!$platillos ->links()!!}
-    </div>
 </div>
 <!-- End div Table-->
-
+@else
+    <!--Title-->
+    <h1 class="text-center text-5xl py-8 pt-12 mt-12 font-extrabold font-['Open_Sans']">MENU</h1>
+    <!--Food-->
+    
+    <div class="grid justify-items-center gap-5 px-4 mt-6">
+    @foreach ($platillos as $plato)
+      <div class="flex px-5">    
+        <div class="card w-64  glass">
+          <figure class="p-4"><img src="{{asset ('storage').'/'.$plato->image}}" alt="palto" class="rounded-xl w-96"/></figure>
+              <div class="card-body">
+                  <!--Name-->
+                  <h2 class="card-title">{{$plato -> name}}</h2>
+                  <!--Description-->
+                  <p>{{$plato -> description}}</p>
+                  <!--Price-->
+                  <span class="font-extrabold">{{$plato -> price}}</span>
+                  <!--Button add-->
+                  <div class="card-actions justify-end">
+                  <button class="btn btn-primary transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300"><img src="{{ asset('storage\buy.png')}}" class="px-2"/>Añadir</button>
+              </div>
+        </div>
+      </div>
+      @endforeach
+    </div>
+        
+    </div>
+@endif
 @endsection

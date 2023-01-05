@@ -19,7 +19,7 @@
     <input type="text" name="name" value="{{ isset($platillo -> name)?$platillo->name:old('name')}}" placeholder="Escriba aquí" class="input input-bordered text-black w-full max-w-xs rounded-lg" />
     <br>
     <label class="label">
-        <span class="label-text font-extrabold ">Descripción: </span>
+        <span class="label-text font-extrabold">Descripción: </span>
     </label>
     <input type="text" name="description" value="{{ isset($platillo -> description)?$platillo->description:old('description')}}" placeholder="Escriba aquí" class="text-center input input-bordered text-black w-full h-60 max-w-xs rounded-lg" />
     <br>

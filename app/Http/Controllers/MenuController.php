@@ -52,7 +52,7 @@ class MenuController extends Controller
         //Campos a validar
         $campos=[
             'name'=>'required|string|max:50',
-            'description'=>'required|string|max:100',
+            'description'=>'required|string|max:200',
             'price'=>'required|numeric',
             'image'=>'required|max:1000|mimes:jpeg,png,svg,jpg',
         ];

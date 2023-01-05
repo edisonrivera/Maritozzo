@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string("name",30) -> required();
-            $table ->string("description",40) -> required();
+            $table ->string("description",200) -> required();
             $table ->decimal("price", 3,2)->require();
             $table ->string("image")->require();
             $table ->timestamps();
