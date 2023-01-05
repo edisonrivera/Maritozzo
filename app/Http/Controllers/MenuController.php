@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 //nuevo
-use Validator;
+use Illuminate\Support\Facades\DB;
 use  Illuminate\Support\Facades\Storage;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class MenuController extends Controller
 {
@@ -16,13 +15,20 @@ class MenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index (Request $request)
     {
-        //consultar informacion
-        $datos ['platillos'] = Menu::paginate(10);
-        //le proporcionamos al index la info para ser vista
-        return view ('menu.index',$datos); 
+        //Busqueda de informacion
+        $texto = trim($request->get('texto'));
+        $platillos = DB::table('menus')
+                ->select('id','name','description','price','image')
+                ->where('name','LIKE','%'.$texto.'%')
+                ->orderBy('id','asc')
+                ->paginate(1);
+        return view ('menu.index',compact('platillos','texto'));
     }
+
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -43,6 +49,23 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        //Campos a validar
+        $campos=[
+            'name'=>'required|string|max:50',
+            'description'=>'required|string|max:100',
+            'price'=>'required|numeric',
+            'image'=>'required|max:1000|mimes:jpeg,png,svg,jpg',
+        ];
+
+        //mensajes de error
+        $mensaje=[
+            'name.required' => 'El nombre es requerido',
+            'description.required' => 'La descripción es requerida',
+            'price.required' => 'El precio es requerido',
+            'image.required' => 'La foto es requerida'
+        ];
+
+        $this->validate($request, $campos, $mensaje);
         //Conseguir datos
         $datosMenu = $request-> except('_token');
         if($request -> hasFile('image')){
@@ -82,6 +105,26 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
+                //Campos a validar
+                $campos=[
+                    'name'=>'required|string|max:50',
+                    'description'=>'required|string|max:100',
+                    'price'=>'required|numeric',
+                ];
+        
+                //mensajes de error
+                $mensaje=[
+                    'name.required' => 'El nombre es requerido',
+                    'description.required' => 'La descripción es requerida',
+                    'price.required' => 'El precio es requerido'
+                ];
+
+                if($request -> hasFile('image')){
+                    $campos=['image'=>'required|max:1000|mimes:jpeg,png,svg,jpg'];
+                    $mensaje=['image.required' => 'La foto es requerida'];
+                }
+        
+                $this->validate($request, $campos, $mensaje);
         //aqui mandamos a que guarde los cambios de edit en la BD
         $datosMenu = $request-> except(['_token', '_method']);
         //si existe la foto
@@ -97,7 +140,7 @@ class MenuController extends Controller
         Menu::where('id','=', $id)->update($datosMenu);
         //vuelvo a buscar la info para retornar con los datos actuales
         $platillo = Menu::findOrFail($id); 
-        return view('menu.edit', compact('platillo'));
+        return redirect('menu')-> with('mensaje','Registro Modificado');
     }
 
     /**
@@ -114,6 +157,6 @@ class MenuController extends Controller
             //utilizamos el model y usamos el id
             Menu::destroy($id);
         }
-        return redirect('menu');
+        return redirect('menu')-> with('mensaje','Registro Eliminado');
     }
 }
