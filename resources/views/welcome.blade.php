@@ -41,16 +41,16 @@
     <!-- CARRUSEL -->
     <div class="carousel rounded-box rounded-t-lg w-auto mx-10 pt-8">
         <div id="item1" class="carousel-item w-full">
-          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <img src="{{asset('/storage/first.jpg')}}" class="w-full h-96 px-12 mx-60" />
         </div> 
         <div id="item2" class="carousel-item w-full">
-          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <img src="{{asset('/storage/second.jpg')}}" class="w-full h-96 px-12 mx-60" />
         </div> 
         <div id="item3" class="carousel-item w-full">
-          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <img src="{{asset('/storage/third.jpg')}}" class="w-full h-96 px-12 mx-60" />
         </div> 
         <div id="item4" class="carousel-item w-full">
-          <img src="https://placeimg.com/800/200/arch" class="w-full" />
+          <img src="{{asset('/storage/fourth.jpg')}}" class="w-full h-96 px-12 mx-60" />
         </div>
     </div>
 
