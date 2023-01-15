@@ -10,7 +10,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Maritozzo | @yield('subtitle')</title>
 </head>
-<body class="font-mono">
+<body class="font-mono relative min-h-screen pb-40">
     @include('partials.navbar')
     <main>
         @yield('content')
